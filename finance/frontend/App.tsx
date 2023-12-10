@@ -1,11 +1,14 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack'
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import AppContainer from './src/navigation'
+import { Provider } from 'react-redux'
+import store from './src/modules/redux/Store'
+
+
 
 export default function App() {
   return (
-    <AppContainer/>
+    <Provider store={store}>
+      <AppContainer/>
+    </Provider>
+    
   );
 }
