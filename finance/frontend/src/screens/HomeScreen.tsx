@@ -15,12 +15,12 @@ const HomeScreen = ({navigation}) => {
       // 여기서는 일단 Auth로 이동
       navigation.replace('Auth')
 
-    }, 3000)
+    }, 1000)
   }, [])
 
     return(
         <View style={styles.container}>
-            <Text>메인 페이지야</Text>
+            <Text>메인 페이지입니다.</Text>
             <StatusBar style="auto" />
             
             {/* <Button 
