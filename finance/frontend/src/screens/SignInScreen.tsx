@@ -121,11 +121,12 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderTopLeftRadius: 7,
     borderTopRightRadius: 7,
-    width: '75%',
-    height: 25,
+    width: '35%',
+    height: 35,
     paddingLeft: 10,
     paddingRight: 10,
   },
+  
   textFormBottom: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -134,8 +135,8 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderBottomRightRadius: 7,
     borderBottomLeftRadius: 7,
-    width: '75%',
-    height: 25,
+    width: '35%',
+    height: 35,
     paddingLeft: 10,
     paddingRight: 10,
   },
@@ -147,7 +148,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 15,
-    width:'75%',
+    width:'35%',
   },
 
   TextRegister: {

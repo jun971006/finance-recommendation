@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
+import { screenMap } from '../navigation/screenMap';
 
-const SignUpScreen = () => {
+const SignUpScreen = ({navigation}) => {
 
   const [userName, setUserName] = useState('');
   const [userId, setUserId] = useState('');
@@ -35,33 +36,33 @@ const SignUpScreen = () => {
 
   return(
       <View style={styles.container}>
-        <View>
+        <View style={styles.topArea}>
           <Text>회원가입 페이지입니다..!</Text>
         </View>
 
-        <View>
-          <TextInput
+        <View style={styles.formArea}>
+          <TextInput style={styles.textInputTop}
             placeholder='이름을 입력하세요'
             onChangeText={(userName) => setUserName(userName)}
             blurOnSubmit={false}             
             returnKeyType="next"
 
           />
-          <TextInput
+          <TextInput style={styles.textInputMiddle1}
             placeholder='아이디를 입력하세요(영문, 숫자)'
             onChangeText={(userId) => setUserId(userId)}
             blurOnSubmit={false}             
             returnKeyType="next"
 
           />
-          <TextInput
+          <TextInput style={styles.textInputMiddle2}
             placeholder='비밀번호를 입력하세요(8자 이상)'
             onChangeText={(userPassword) => setUserPassword(userPassword)}
             secureTextEntry={true}             
             returnKeyType="next"
             blurOnSubmit={false}   
           />
-          <TextInput
+          <TextInput style={styles.textInputBottom}
             placeholder='비밀번호 확인'
             onChangeText={(userPasswordCheck) => setUserPasswordCheck(userPasswordCheck)}
             secureTextEntry={true}
@@ -73,13 +74,18 @@ const SignUpScreen = () => {
         </View>
           
         <View style={{flex: 0.75, alignItems: 'center',}} >
-          <View>
+          <View style={styles.btnArea}>
             <TouchableOpacity onPress={handleSubmitPress}>
-              <Text style={{color: 'white'}}>로그인</Text>
+              <Text style={{color: 'white'}}>회원가입</Text>
             </TouchableOpacity>
           </View>
-          <Text>
-            소셜미디어로 로그인하기..!
+          {/* <Text >
+            소셜미디어로 회원가입하기..!
+          </Text> */}
+          <Text
+            style={styles.TextLogin}
+            onPress={() => navigation.navigate(screenMap.SignIn)}>
+            이미 회원이시면, 로그인을 해주세요..!
           </Text>
         </View>
 
@@ -95,8 +101,89 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'center',
+  },
+
+  topArea: {
+    alignItems: 'center',
+    paddingTop: 2,
+  },
+  
+  formArea: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+    height:'50%'
+  },
+
+  textInputTop: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderBottomWidth: 1,
+    borderColor: 'black',
+    borderTopLeftRadius: 7,
+    borderTopRightRadius: 7,
+    width: '35%',
+    height: 35,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+
+  textInputMiddle1: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderTopWidth: 1,
+    borderColor: 'black',
+    width: '35%',
+    height: 35,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+
+  textInputMiddle2: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderTopWidth: 1,
+    borderColor: 'black',
+    width: '35%',
+    height: 35,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+
+  textInputBottom: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 2,
+    borderTopWidth: 1,
+    borderColor: 'black',
+    borderBottomRightRadius: 7,
+    borderBottomLeftRadius: 7,
+    width: '35%',
+    height: 35,
+    paddingLeft: 10,
+    paddingRight: 10,
+  },
+  
+  btnArea: {
+    paddingTop: 15,
+    height: 5,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingBottom: 15,
+    width:'35%',
+  },
+
+  TextLogin: {
+    fontSize: 10,
+    color: 'grey',
+    textDecorationLine: 'underline',
+    paddingTop: 10,
   },
 });
 
