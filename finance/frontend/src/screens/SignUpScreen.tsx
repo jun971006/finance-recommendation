@@ -31,6 +31,9 @@ const SignUpScreen = ({navigation}) => {
       return;
     }
 
+    // console.log(userName + ' ' + userId + ' ' + userPassword + ' ' + userPasswordCheck)
+
+    
 
   }
 
@@ -72,10 +75,19 @@ const SignUpScreen = ({navigation}) => {
 
 
         </View>
+
+        <View style={{ flex:0.1, justifyContent: 'center', alignItems: 'center',}}>
+          {userPassword !== userPasswordCheck ? (
+            <Text style={{color: 'red'}}>
+              비밀번호가 일치하지 않습니다.
+            </Text>
+          ) : null}
+        </View>
           
         <View style={{flex: 0.75, alignItems: 'center',}} >
           <View style={styles.btnArea}>
-            <TouchableOpacity onPress={handleSubmitPress}>
+            <TouchableOpacity style={styles.btn} 
+            onPress={handleSubmitPress}>
               <Text style={{color: 'white'}}>회원가입</Text>
             </TouchableOpacity>
           </View>
@@ -114,7 +126,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flex: 1,
-    height:'50%'
+    height:'15%',
   },
 
   textInputTop: {
@@ -125,7 +137,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderTopLeftRadius: 7,
     borderTopRightRadius: 7,
-    width: '35%',
+    width: '20%',
     height: 35,
     paddingLeft: 10,
     paddingRight: 10,
@@ -137,7 +149,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderTopWidth: 1,
     borderColor: 'black',
-    width: '35%',
+    width: '20%',
     height: 35,
     paddingLeft: 10,
     paddingRight: 10,
@@ -149,7 +161,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderTopWidth: 1,
     borderColor: 'black',
-    width: '35%',
+    width: '20%',
     height: 35,
     paddingLeft: 10,
     paddingRight: 10,
@@ -163,7 +175,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderBottomRightRadius: 7,
     borderBottomLeftRadius: 7,
-    width: '35%',
+    width: '20%',
     height: 35,
     paddingLeft: 10,
     paddingRight: 10,
@@ -172,11 +184,19 @@ const styles = StyleSheet.create({
   btnArea: {
     paddingTop: 15,
     height: 5,
-    backgroundColor: 'black',
+    width: '20%',
     justifyContent: 'center',
     alignItems: 'center',
     paddingBottom: 15,
-    width:'35%',
+    backgroundColor: 'black',
+    borderRadius: 7,
+  },
+  
+  btn: {
+    flex: 1,
+    borderRadius: 7,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   TextLogin: {
